@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { TableComponent } from './table/table.component';
-import { TableRowComponent } from './table-row/table-row.component';
 import { ChooseCardComponent } from './choose-card/choose-card.component';
 import { RegisterCardComponent } from './register-card/register-card.component';
 

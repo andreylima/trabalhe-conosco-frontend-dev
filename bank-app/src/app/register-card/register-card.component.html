@@ -1,29 +1,29 @@
 <form action="">
-	<select name="cardFlag" id="cardFlag">
+	<select name="card_flag" id="card_flag">
 		<option value="" disabled selected>Selecione a bandeira</option>
 		<option value=""></option>
 	</select>
 	
 	<div class="inputWrapper">
-		<label for="cardName">Nome escrito no cartão</label>
-		<input type="text" name="cardName" placeholder="Nome escrito no cartão" value={{cardName}}>
+		<label for="card_name">Nome escrito no cartão</label>
+		<input type="text" name="card_name" placeholder="Nome escrito no cartão" value="{{cardInfo.card_name}}">
 	</div>
 	<div class="inputWrapper">
-		<label for="cardNumber">Número no cartão</label>
-		<input type="text" name="cardNumber" placeholder="Número no cartão">
+		<label for="card_number">Número no cartão</label>
+		<input type="text" name="card_number" placeholder="Número no cartão" value={{cardInfo.card_number}}>
 	</div>
 	<div class="inputWrapper">
-		<label for="expiry">Validade (mm/aaa)</label>
-		<input type="text" name="expiry" placeholder="Validade (mm/aaa)">
+		<label for="expiry_date">Validade (mm/aaa)</label>
+		<input type="text" name="expiry_date" placeholder="Validade (mm/aaa)" value={{cardInfo.expiry_date}}>
 	</div>
 	<div class="inputWrapper">
-		<label for="">Código de segurança</label>
-		<input type="text" name="securityCode" placeholder="Código de segurança">
+		<label for="security_code">Código de segurança</label>
+		<input type="text" name="security_code" placeholder="Código de segurança" value={{cardInfo.security_code}}>
 	</div>
 	<div class="inputWrapper">
-		<label for="billingCep">CEP do endereço da fatura</label>
-		<input type="text" name="billingCep" placeholder="CEP do endereço da fatura">
+		<label for="billing_cep">CEP do endereço da fatura</label>
+		<input type="text" name="billing_cep" placeholder="CEP do endereço da fatura" value={{cardInfo.billing_cep}}>
 	</div>
 
-	<button id="submit" type="submit" (click)="saveNewCard()" >CADASTRAR</button>
+	<button id="submit" type="button" (click)="saveNewCard()" >CADASTRAR</button>
 </form>

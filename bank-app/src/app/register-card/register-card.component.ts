@@ -11,19 +11,28 @@ export class RegisterCardComponent implements OnInit {
 
   constructor(private atService: BankAppService, private router: Router) { }
 
-	cardInfo : any = { 
-		cardName: 'Teste' 
-	};
+	cardInfo : any = [{ 
+		card_name: "",
+    card_flag: "",
+    card_number: "",
+    expiry_date: "",
+    security_code: "",
+    billing_cep: ""
+	}];
 
 	user : any;
+  actualCards : any ;
 
   saveNewCard()
   {
-	localStorage.setItem(this.user.name, JSON.stringify(this.cardInfo));
+   this.actualCards = localStorage.getItem(this.user.name);
+   this.actualCards.push(this.cardInfo);
+	 localStorage.setItem(this.actualCards, JSON.stringify(this.cardInfo));
   }
 
   ngOnInit() {
   	this.user = this.atService.getUser();
+
   }
 
 }
