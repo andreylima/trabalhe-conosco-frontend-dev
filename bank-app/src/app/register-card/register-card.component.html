@@ -1,0 +1,29 @@
+<form action="">
+	<select name="cardFlag" id="cardFlag">
+		<option value="" disabled selected>Selecione a bandeira</option>
+		<option value=""></option>
+	</select>
+	
+	<div class="inputWrapper">
+		<label for="cardName">Nome escrito no cartão</label>
+		<input type="text" name="cardName" placeholder="Nome escrito no cartão" value={{cardName}}>
+	</div>
+	<div class="inputWrapper">
+		<label for="cardNumber">Número no cartão</label>
+		<input type="text" name="cardNumber" placeholder="Número no cartão">
+	</div>
+	<div class="inputWrapper">
+		<label for="expiry">Validade (mm/aaa)</label>
+		<input type="text" name="expiry" placeholder="Validade (mm/aaa)">
+	</div>
+	<div class="inputWrapper">
+		<label for="">Código de segurança</label>
+		<input type="text" name="securityCode" placeholder="Código de segurança">
+	</div>
+	<div class="inputWrapper">
+		<label for="billingCep">CEP do endereço da fatura</label>
+		<input type="text" name="billingCep" placeholder="CEP do endereço da fatura">
+	</div>
+
+	<button id="submit" type="submit" (click)="saveNewCard()" >CADASTRAR</button>
+</form>

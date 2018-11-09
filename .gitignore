@@ -1,0 +1,10 @@
+﻿# ignora arquivos indesejados
+.DS_Store
+DS_Store
+.sublime-workspace
+.ini
+.map
+
+# ignora pacotes do node (dependências do grunt)
+node_modules/
+pug/
