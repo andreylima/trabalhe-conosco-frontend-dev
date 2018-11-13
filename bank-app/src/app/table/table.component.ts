@@ -31,7 +31,7 @@ export class TableComponent implements OnInit {
 
   onSelect(selectedItem: any){
     this.atService.setSelected(selectedItem);
-    this.router.navigate(['/choose-card']);
+    this.router.navigate(['/transfer']);
   }
 
 }
