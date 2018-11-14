@@ -1,0 +1,10 @@
+<div *ngIf="!hasCardRegistered">
+	<span>Nenhum cartão de crédito registrado</span>
+	<a href="javascript:void(0)" (click)="registerCard()">
+		Cadastrar agora
+	</a>
+</div>
+<div *ngIf="hasCardRegistered" class="registeredCard">
+	<span>Forma de pagamento:</span>
+	<span>Cartão de Crédito com final {{finalNumber}}</span>
+</div>
