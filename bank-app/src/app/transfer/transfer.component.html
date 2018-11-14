@@ -4,7 +4,7 @@
 		Cadastrar agora
 	</a>
 </div>
-<div *ngIf="hasCardRegistered" class="registeredCard">
+<div *ngIf="hasCardRegistered" class="registeredCard" (click)="chooseCard()">
 	<span>Forma de pagamento:</span>
 	<span>Cartão de Crédito com final {{finalNumber}}</span>
 </div>

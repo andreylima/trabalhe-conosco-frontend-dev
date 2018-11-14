@@ -15,18 +15,30 @@ export class ChooseCardComponent implements OnInit {
   cachedUserData : any;
   hasCardRegistered : boolean = false;
   user : any;
+  cardsArray : any = [];
+  selectedCard : any = 0;
 
   registerNewCard()
   {
   	this.router.navigate(['/register-card']);
   }
 
+  selectCard(i){
+    this.selectedCard = i;
+  }
+
+  confirmCard(){
+    
+  }
+
   ngOnInit() {
   	this.user = this.atService.getUser();
-  	this.cachedUserData = localStorage.getItem(this.userData.username);
+  	this.cachedUserData = localStorage.getItem("mycards");
   	if (this.cachedUserData != null) {
   		this.hasCardRegistered  = true;
+      this.cardsArray = JSON.parse(this.cachedUserData);
   	}
+
 
   }
 

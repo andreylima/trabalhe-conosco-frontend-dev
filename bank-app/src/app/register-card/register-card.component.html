@@ -1,29 +1,39 @@
-<form [formGroup]="cardInfo">
-	<select name="card_flag" id="card_flag">
-		<option value="" disabled selected>Selecione a bandeira</option>
-		<option value=""></option>
-	</select>
-	
+<form [formGroup]="cardInfo" (ngSubmit)="saveNewCard()">
+	<div class="inputWrapper">
+		<select class="form-control" 
+        name="card_flag"
+		formControlName="card_flag">
+		<option value="null" >Selecione a bandeira</option>
+		<option *ngFor="let card_flag of card_flags" 
+		        [value]="card_flag.id">
+		        {{ card_flag.name }}
+		</option>  
+		</select>
+	</div>
 	<div class="inputWrapper">
 		<label for="card_name">Nome escrito no cartão</label>
-		<input type="text" name="card_name" placeholder="Nome escrito no cartão" value="{{cardInfo.card_name}}">
+		<input type="text" name="card_name" formControlName="card_name" placeholder="Nome escrito no cartão" >
 	</div>
 	<div class="inputWrapper">
 		<label for="card_number">Número no cartão</label>
-		<input type="text" name="card_number" placeholder="Número no cartão" value={{cardInfo.card_number}}>
+		<input type="text" name="card_number" formControlName="card_number" placeholder="Número no cartão" >
 	</div>
 	<div class="inputWrapper">
 		<label for="expiry_date">Validade (mm/aaa)</label>
-		<input type="text" name="expiry_date" placeholder="Validade (mm/aaa)" value={{cardInfo.expiry_date}}>
+		<input type="text" name="expiry_date" formControlName="expiry_date" placeholder="Validade (mm/aaa)" >
 	</div>
 	<div class="inputWrapper">
 		<label for="security_code">Código de segurança</label>
-		<input type="text" name="security_code" placeholder="Código de segurança" value={{cardInfo.security_code}}>
+		<input type="text" name="security_code" formControlName="security_code" placeholder="Código de segurança" >
 	</div>
 	<div class="inputWrapper">
 		<label for="billing_cep">CEP do endereço da fatura</label>
-		<input type="text" name="billing_cep" placeholder="CEP do endereço da fatura" value={{cardInfo.billing_cep}}>
+		<input type="text" name="billing_cep" formControlName="billing_cep" placeholder="CEP do endereço da fatura" >
 	</div>
-
-	<button id="submit" type="button" (click)="saveNewCard()" >CADASTRAR</button>
+	<div *ngIf="card_name.touched && card_name.errors">
+	    <div class="alert alert-danger" *ngIf="card_name.errors.required">
+	      The email is required
+	    </div>
+	</div>
+	<button class="btn btn-primary" type="submit" [disabled]="!cardInfo.valid">CADASTRAR</button>
 </form>

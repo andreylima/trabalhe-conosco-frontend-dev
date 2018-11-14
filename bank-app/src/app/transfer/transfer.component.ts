@@ -32,8 +32,7 @@ export class TransferComponent implements OnInit {
   	this.cachedUserData = localStorage.getItem("mycards");
   	if (this.cachedUserData != null) {
   		this.hasCardRegistered  = true;
-  		this.cachedUserData = this.cachedUserData[0];
-  		console.log(this.cachedUserData);
+  		this.cachedUserData = JSON.parse(this.cachedUserData)[0];
   	}
   }
 

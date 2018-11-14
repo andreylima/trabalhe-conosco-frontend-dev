@@ -1,3 +1,9 @@
 <div>
+	<div *ngIf="hasCardRegistered" class="registeredCardWrapper">
+		<div *ngFor="let card of cardsArray; let i=index" [className]="i == selectedCard ? 'selected' : '' " (click)="selectCard(i)">
+				<span>{{ card.card_number }}</span>
+		</div>  
+	</div>
 	<button class="registerCard" (click)="registerNewCard()">Cadastrar novo cartão</button>
+	<button class="selectCard" (click)="confirmCard()">Selecionar Cartão</button>
 </div>
